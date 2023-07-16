@@ -23,8 +23,8 @@ contactSchema.post('save', handleMongooseError);
 
 const addSchema = Joi.object({
     name: Joi.string().required(),
-    email: Joi.string().required(),
-    phone: Joi.string().required(),
+    email: Joi.string().email().required(),
+    phone: Joi.string().pattern(/^\+[1-9]\d{1,14}$/).required(),
     favorite: Joi.boolean(),
 });
 
